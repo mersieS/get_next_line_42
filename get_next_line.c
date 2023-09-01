@@ -6,7 +6,7 @@
 /*   By: sbuker <sbuker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:34:54 by sbuker            #+#    #+#             */
-/*   Updated: 2023/08/26 16:19:50 by sbuker           ###   ########.fr       */
+/*   Updated: 2023/09/01 18:38:02 by sbuker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,8 @@ char	*get_next_line(int fd)
 	line = ft_get_line(left_str);
 	left_str = ft_new_left_str(left_str);
 	return (line);
+}
+
+int main(){
+	
 }
