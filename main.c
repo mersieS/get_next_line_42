@@ -4,27 +4,29 @@
 
 int main(void)
 {
-    char **line;
-    int fd;
-    int c;
-    int i;
+    char **line = (char **)malloc(sizeof(char *) * 16);
 
-    fd = open("test.txt", O_RDONLY);
-    i = 0;
-    while(get_next_line(fd) != NULL)
-        i++;
-    close(fd);
-    fd = open("test.txt", O_RDONLY);
-    line = malloc(i * sizeof(char *));
-    c = 0;
-    while(i > 0)
+    int i = 0;
+
+    while(i < 16)
     {
-        *line[c] = get_next_line(fd);
-        c++;
-        i--;
-        free(line[c]);
+        line[i] = (char *)malloc(sizeof(char) * 100);
+        i++;
     }
-    while (i > 8)
-        printf("%s", *line[i--]);
+
+    i = 0;
+    int fd = open("test.txt", O_RDONLY);
+    while(i < 16){
+        line[i] = get_next_line(fd);
+        i++;
+    }
+
+    i = 15;
+    while(i >= 0)
+    {
+        printf("%s", line[i]);
+        i--;
+    }
     free(line);
+    close(fd);
 }
